@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公共政策分析复试自测系统 - 杭州师范大学 MPA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .answer-content {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .user-input-area {
+            border: 1px dashed #cbd5e1;
+            transition: all 0.2s;
+        }
+        .user-input-area:focus {
+            border-color: #6366f1;
+            background-color: #fff;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        @media print {
+            .no-print, .user-input-area { display: none !important; }
+            .answer-content { display: block !important; }
+            .print-only-answer { margin-top: 1rem; border-left: 2px solid #6366f1; padding-left: 1rem; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen pb-12 text-slate-900">
+
+    <!-- Header -->
+    <header class="bg-indigo-800 text-white py-10 px-4 shadow-lg mb-8 no-print">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-3xl font-bold mb-2 tracking-tight">公共政策分析（陈庆云版）标准练习卷</h1>
+            <p class="opacity-90 italic">杭州师范大学公共管理专业（非全）复试笔试模拟系统</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+                <span class="bg-indigo-700 border border-indigo-500 px-4 py-1 rounded-full text-indigo-100">满分：100分</span>
+                <span class="bg-indigo-700 border border-indigo-500 px-4 py-1 rounded-full text-indigo-100">建议用时：120分钟</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4">
+        
+        <!-- Controls -->
+        <div class="flex justify-between items-center mb-6 no-print">
+            <div class="text-slate-500 text-sm italic">
+                <span class="inline-block w-2 h-2 bg-indigo-500 rounded-full mr-1"></span> 先在框内输入你的答案，再核对正确解析
+            </div>
+            <div class="flex gap-2">
+                <button onclick="toggleAllAnswers()" class="bg-white border border-slate-300 px-4 py-2 rounded-lg shadow-sm hover:bg-slate-50 text-slate-700 transition text-sm">全部显/隐答案</button>
+                <button onclick="window.print()" class="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-sm hover:bg-indigo-700 transition font-medium text-sm">打印/导出PDF</button>
+            </div>
+        </div>
+
+        <!-- Section 1: Fill in the blanks -->
+        <section class="bg-white rounded-xl shadow-md border border-slate-200 mb-8 overflow-hidden">
+            <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                <h2 class="text-xl font-bold text-slate-800">一、填空题 (本大题共 10 小题，每小题 2 分，共 20 分)</h2>
+            </div>
+            <div class="p-6 space-y-6">
+                <div class="space-y-6">
+                    <!-- Q1 -->
+                    <div class="question-item">
+                        <p class="leading-relaxed">1. 公共政策的本质是公共权力机关为解决公共问题、实现公共目标而制定的 <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-48 text-indigo-700 font-medium bg-transparent">。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：行为规范</div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="question-item">
+                        <p class="leading-relaxed">2. 赫伯特·西蒙提出了著名的“ <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-48 text-indigo-700 font-medium bg-transparent"> ”模型，以此挑战绝对理性决策观点。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：有限理性</div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="question-item">
+                        <p class="leading-relaxed">3. 政策议程的设置模式通常分为外在创始型、 <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-48 text-indigo-700 font-medium bg-transparent"> 和内在创始型。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：动员型</div>
+                    </div>
+                    <!-- Q4-Q10 (Shortened for brevity but complete list) -->
+                    <div class="question-item">
+                        <p class="leading-relaxed">4. 政策执行过程中出现的“上有政策，下有对策”属于典型的政策执行 <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-40 text-indigo-700 font-medium bg-transparent"> 现象。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：偏差</div>
+                    </div>
+                    <div class="question-item">
+                        <p class="leading-relaxed">5. 陈庆云认为，公共政策分析的逻辑起点是 <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-48 text-indigo-700 font-medium bg-transparent"> 。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：公共问题</div>
+                    </div>
+                    <div class="question-item">
+                        <p class="leading-relaxed">6. 政策工具按其强制性程度可分为强制性工具、 <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-40 text-indigo-700 font-medium bg-transparent"> 和混合性工具。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：自愿性工具</div>
+                    </div>
+                    <div class="question-item">
+                        <p class="leading-relaxed">7. 那些受政策直接作用和影响的个人或组织，在政策分析中被称为 <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-40 text-indigo-700 font-medium bg-transparent"> 。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：目标群体</div>
+                    </div>
+                    <div class="question-item">
+                        <p class="leading-relaxed">8. 公共政策对社会价值的分配，实际上是对 <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-40 text-indigo-700 font-medium bg-transparent"> 的权威性分配。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：社会利益</div>
+                    </div>
+                    <div class="question-item">
+                        <p class="leading-relaxed">9. 在政策评估的标准中， <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-40 text-indigo-700 font-medium bg-transparent"> 强调的是投入与产出之间的比例关系。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：效率指标</div>
+                    </div>
+                    <div class="question-item">
+                        <p class="leading-relaxed">10. 政策系统中最核心、起主导作用的要素是 <input type="text" placeholder="..." class="border-b-2 border-slate-300 focus:border-indigo-500 outline-none px-2 w-40 text-indigo-700 font-medium bg-transparent"> 。</p>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-xs text-indigo-600 font-medium hover:underline no-print">查看答案</button>
+                        <div class="answer-content mt-2 p-3 bg-indigo-50 text-indigo-900 rounded-lg text-sm border-l-4 border-indigo-400 print-only-answer">参考答案：政策主体</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Noun Explanation -->
+        <section class="bg-white rounded-xl shadow-md border border-slate-200 mb-8 overflow-hidden">
+            <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                <h2 class="text-xl font-bold text-slate-800">二、名词解释 (本大题共 5 小题，每小题 6 分，共 30 分)</h2>
+            </div>
+            <div class="p-6 space-y-8">
+                <!-- Noun Explanation with Input -->
+                <script>
+                    const nouns = [
+                        { q: "公共利益", a: "公共政策的逻辑起点和终极目标。它是指在特定社会范围内，由大多数成员所共享的、非排他性的利益集合。它具有复合性、相对性和变动性。" },
+                        { q: "政策方案构建", a: "是指在发现问题并确定政策目标后，政策制定者通过各种预测和分析手段，设计、编制、优化解决问题的具体行动计划的过程。" },
+                        { q: "政策工具", a: "也称政策手段。它是指政府为了实现特定的政策目标，而采取的各种具体的手段、方式或技术。通常分为规制性工具、激励性工具和信息传达性工具等。" },
+                        { q: "社会议程", a: "指社会上的一些问题通过大众传播媒介或利益集团的游说，引起了社会公众的广泛关注和讨论，形成了较强的社会舆论压力，但政府尚未正式决定是否采取行动。" },
+                        { q: "政策监控", a: "指监控主体为了确保政策目标的实现，对政策过程进行的监督、控制、纠偏等活动。包括上级对下级的行政监控、舆论监督等。" }
+                    ];
+                </script>
+                <div id="noun-list" class="space-y-8">
+                    <!-- Dynamic rendering via JS for structure -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Short Answer -->
+        <section class="bg-white rounded-xl shadow-md border border-slate-200 mb-8 overflow-hidden">
+            <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                <h2 class="text-xl font-bold text-slate-800">三、简答题 (本大题共 5 小题，每小题 10 分，共 50 分)</h2>
+            </div>
+            <div id="short-answer-list" class="p-6 space-y-10">
+                <!-- Dynamic rendering -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center text-slate-400 text-sm py-12 border-t border-slate-200 mt-12 bg-white no-print">
+        <p>© 2024 复试提分系统 · 祝愿顺利上岸！</p>
+    </footer>
+
+    <script>
+        const shortAnswers = [
+            { q: "1. 公共政策的主要功能有哪些？", a: "1. 导向功能：引导社会成员行为方向。 2. 规范/约束功能：对社会行为进行控制。 3. 分配功能：对社会资源、利益和机会进行权威性分配。 4. 调节功能：平衡不同利益集团冲突。" },
+            { q: "2. 简析政策执行中产生偏差（如变通执行）的主要原因。", a: "1. 政策本身原因（目标模糊/不切实际）。 2. 执行主体利益偏离（地方或部门利益驱动）。 3. 资源保障不足（经费、人员短缺）。 4. 信息传递失真。 5. 目标群体的抵制。" },
+            { q: "3. 简述林德布洛姆渐进决策模型的特点。", a: "1. 渐进性：局部修正。 2. 连续性：循环往复。 3. 分散决策：多方利益博弈。 4. 低风险：稳健过渡。" },
+            { q: "4. 简述政策评估的主要障碍。", a: "1. 目标不确定性（难以量化）。 2. 影响滞后性。 3. 因果关系复杂性。 4. 资料获取困难。 5. 政治压力的干预。" },
+            { q: "5. 简述政策终结的阻力主要有哪些？", a: "1. 心理抵制。 2. 利益集团的反对。 3. 法律/制度的惯性。 4. 终结成本高昂。 5. 社会认知的局限。" }
+        ];
+
+        function renderQuestions() {
+            const nounList = document.getElementById('noun-list');
+            nouns.forEach((item, index) => {
+                nounList.innerHTML += `
+                    <div class="question-item">
+                        <h3 class="font-bold text-slate-700 flex items-center">
+                            <span class="w-6 h-6 bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center rounded-full mr-2">${index + 1}</span>
+                            ${item.q}
+                        </h3>
+                        <textarea placeholder="输入你的回答内容..." class="user-input-area w-full mt-3 p-3 bg-slate-50 rounded-lg text-sm outline-none h-24 resize-none no-print"></textarea>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-sm text-indigo-600 font-medium hover:underline no-print">显示解析</button>
+                        <div class="answer-content mt-2 p-4 bg-slate-50 text-slate-800 rounded-lg border border-slate-200 shadow-inner print-only-answer">
+                            ${item.a}
+                        </div>
+                    </div>
+                `;
+            });
+
+            const saList = document.getElementById('short-answer-list');
+            shortAnswers.forEach((item) => {
+                saList.innerHTML += `
+                    <div class="question-item">
+                        <h3 class="font-bold text-lg text-slate-700">${item.q}</h3>
+                        <textarea placeholder="在这里输入要点分析..." class="user-input-area w-full mt-3 p-3 bg-slate-50 rounded-lg text-sm outline-none h-40 resize-none no-print"></textarea>
+                        <button onclick="toggleAnswer(this)" class="mt-2 text-sm text-indigo-600 font-medium hover:underline no-print">查看答案要点</button>
+                        <div class="answer-content mt-2 p-4 bg-slate-50 text-slate-800 rounded-lg border border-slate-200 shadow-inner print-only-answer">
+                            ${item.a}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function toggleAnswer(btn) {
+            const answer = btn.nextElementSibling;
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                btn.innerText = (btn.innerText.includes("显示") || btn.innerText.includes("查看")) ? btn.innerText : (btn.previousElementSibling.tagName === 'H3' ? "显示解析" : "查看答案要点");
+            } else {
+                answer.style.display = "block";
+                btn.innerText = "收起解析";
+            }
+        }
+
+        function toggleAllAnswers() {
+            const answers = document.querySelectorAll('.answer-content');
+            const btns = document.querySelectorAll('button[onclick="toggleAnswer(this)"]');
+            const isShowing = Array.from(answers).some(a => a.style.display === "block");
+            
+            answers.forEach(a => a.style.display = isShowing ? "none" : "block");
+            btns.forEach(b => {
+                if (isShowing) {
+                    b.innerText = b.parentElement.closest('#noun-list') ? "显示解析" : "查看答案要点";
+                } else {
+                    b.innerText = "收起解析";
+                }
+            });
+        }
+
+        window.onload = renderQuestions;
+    </script>
+</body>
+</html>

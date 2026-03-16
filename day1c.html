@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>软考中级软件设计师 - 考点直达</title>
+    
+    <!-- iOS 专用全屏配置 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="软考冲刺">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600&display=swap');
+        
+        body { 
+            font-family: 'SF Pro Display', -apple-system, sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+            padding-top: env(safe-area-inset-top);
+        }
+
+        /* 任务卡片点击动效 */
+        .task-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+        .task-card:active {
+            transform: scale(0.96);
+            background-color: #f1f5f9;
+        }
+
+        /* 打钩状态样式 */
+        .task-checkbox:checked + div .task-title {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+        .task-checkbox:checked + div .status-icon {
+            color: #10b981;
+        }
+
+        /* 习题选项交互 */
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+        .correct { background-color: #d1fae5 !important; border-color: #10b981 !important; color: #065f46 !important; font-weight: 600; }
+        .wrong { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .explanation { 
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .show-explanation .explanation {
+            max-height: 200px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+    <!-- 顶部状态栏增强 -->
+    <div class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-md mx-auto px-5 py-4">
+            <div class="flex justify-between items-end mb-3">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">今日进度</h1>
+                <span id="progress-percent" class="text-sm font-mono font-bold text-blue-600">0%完成</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div id="main-progress-bar" class="bg-blue-600 h-full w-0 transition-all duration-500"></div>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-md mx-auto px-5 py-6 space-y-8">
+        
+        <!-- 任务学习区 -->
+        <section>
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">学习任务</h3>
+            <div class="space-y-3">
+                <!-- 任务 1 -->
+                <label class="task-card flex items-center bg-white p-4 rounded-2xl shadow-sm border border-slate-100 block cursor-pointer">
+                    <input type="checkbox" id="task1" class="task-checkbox hidden" onchange="updateTaskProgress()">
+                    <div class="flex items-center w-full">
+                        <div class="status-icon text-slate-300 mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <span class="task-title font-medium">考点：装饰器模式定义</span>
+                    </div>
+                </label>
+
+                <!-- 任务 2 -->
+                <label class="task-card flex items-center bg-white p-4 rounded-2xl shadow-sm border border-slate-100 block cursor-pointer">
+                    <input type="checkbox" id="task2" class="task-checkbox hidden" onchange="updateTaskProgress()">
+                    <div class="flex items-center w-full">
+                        <div class="status-icon text-slate-300 mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <span class="task-title font-medium">辨析：UML组合 vs 聚合</span>
+                    </div>
+                </label>
+
+                <!-- 任务 3 -->
+                <label class="task-card flex items-center bg-white p-4 rounded-2xl shadow-sm border border-slate-100 block cursor-pointer">
+                    <input type="checkbox" id="task3" class="task-checkbox hidden" onchange="updateTaskProgress()">
+                    <div class="flex items-center w-full">
+                        <div class="status-icon text-slate-300 mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <span class="task-title font-medium">练习：下午题填空模板</span>
+                    </div>
+                </label>
+            </div>
+        </section>
+
+        <!-- 知识核心 -->
+        <section class="bg-slate-900 rounded-3xl p-6 text-white shadow-xl shadow-blue-900/10">
+            <h2 class="text-blue-400 font-bold mb-4 flex items-center">
+                <span class="mr-2">💡</span> 下午题代码必背
+            </h2>
+            <div class="font-mono text-sm leading-relaxed overflow-x-auto whitespace-pre text-slate-300">
+<span class="text-indigo-400">public abstract class</span> Decorator 
+  <span class="text-indigo-400">implements</span> Component {
+  <span class="text-pink-400">private</span> Component component; 
+  <span class="text-slate-500">// 核心：包含一个接口实例</span>
+
+  <span class="text-indigo-400">public</span> Decorator(Component c) {
+    <span class="text-pink-400">this</span>.component = c;
+  }
+}</div>
+        </section>
+
+        <!-- 互动练习 -->
+        <section class="space-y-4">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">快速测试</h3>
+            
+            <div id="quiz-stack" class="space-y-4">
+                <!-- Q1 -->
+                <div class="quiz-item bg-white p-6 rounded-3xl shadow-sm border border-slate-100" data-answer="B">
+                    <p class="font-bold mb-4 text-slate-800">1. UML中“实心菱形”表示哪种关系？</p>
+                    <div class="grid grid-cols-1 gap-3">
+                        <button onclick="checkAnswer(this, 'A')" class="quiz-option p-4 rounded-2xl text-left bg-slate-50 border border-slate-100">A. 聚合 (部分可脱离)</button>
+                        <button onclick="checkAnswer(this, 'B')" class="quiz-option p-4 rounded-2xl text-left bg-slate-50 border border-slate-100">B. 组合 (部分不可脱离)</button>
+                    </div>
+                    <div class="explanation p-4 bg-blue-50 text-blue-700 text-xs rounded-2xl">
+                        <b>解析：</b>实心菱形是组合关系（Composition），代表强依赖，部分随整体消失而消失。
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quiz-item bg-white p-6 rounded-3xl shadow-sm border border-slate-100" data-answer="A">
+                    <p class="font-bold mb-4 text-slate-800">2. 装饰器模式是为了动态地增加（ ）？</p>
+                    <div class="grid grid-cols-1 gap-3">
+                        <button onclick="checkAnswer(this, 'A')" class="quiz-option p-4 rounded-2xl text-left bg-slate-50 border border-slate-100">A. 职责/功能 (Responsibility)</button>
+                        <button onclick="checkAnswer(this, 'B')" class="quiz-option p-4 rounded-2xl text-left bg-slate-50 border border-slate-100">B. 数据成员 (Data)</button>
+                    </div>
+                    <div class="explanation p-4 bg-blue-50 text-blue-700 text-xs rounded-2xl">
+                        <b>解析：</b>装饰器模式的目的是动态给对象增加职责，而非改变其数据。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 针对微信的引导页脚 -->
+        <footer class="text-center pt-4">
+            <p class="text-[10px] text-slate-400 leading-relaxed uppercase tracking-tighter">
+                建议：Safari点击“分享”->“添加到主屏幕”<br>
+                以获得最佳沉浸式学习体验
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        // 加载历史进度
+        window.onload = function() {
+            const tasks = ['task1', 'task2', 'task3'];
+            tasks.forEach(id => {
+                const checked = localStorage.getItem(id) === 'true';
+                document.getElementById(id).checked = checked;
+            });
+            updateTaskProgress();
+        };
+
+        // 更新进度条
+        function updateTaskProgress() {
+            const tasks = ['task1', 'task2', 'task3'];
+            let done = 0;
+            tasks.forEach(id => {
+                const isChecked = document.getElementById(id).checked;
+                localStorage.setItem(id, isChecked);
+                if (isChecked) done++;
+            });
+            
+            const percent = Math.round((done / tasks.length) * 100);
+            document.getElementById('main-progress-bar').style.width = percent + '%';
+            document.getElementById('progress-percent').innerText = percent + '%完成';
+        }
+
+        // 习题逻辑
+        function checkAnswer(btn, choice) {
+            const parent = btn.closest('.quiz-item');
+            if (parent.classList.contains('show-explanation')) return;
+
+            const correctAnswer = parent.getAttribute('data-answer');
+            const options = parent.querySelectorAll('.quiz-option');
+
+            options.forEach(opt => {
+                if (opt.innerText.startsWith(correctAnswer)) {
+                    opt.classList.add('correct');
+                }
+            });
+
+            if (choice !== correctAnswer) {
+                btn.classList.add('wrong');
+            }
+
+            parent.classList.add('show-explanation');
+            
+            // 答题完也自动勾选一个任务表示成就
+            if(document.querySelectorAll('.show-explanation').length === 2) {
+                document.getElementById('task3').checked = true;
+                updateTaskProgress();
+            }
+        }
+    </script>
+</body>
+</html>
